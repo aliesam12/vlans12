@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بحث VLAN</title>
+    <style>
+        /* دمج كود CSS هنا */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>بحث VLAN</h1>
+        <input type="text" id="zoneInput" placeholder="أدخل رقم الزون" />
+        <button onclick="lookupVlan()">بحث</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        // دمج كود JavaScript هنا
+        const vlanData = {
+            151: 210,
+            1310: 114,
+            1694: 112,
+            1692: 115,
+            140: 211,
+            267: 213,
+            1721: 315,
+            1698: 716,
+            148: 113,
+            259: 117,
+            1696: 612,
+            264: 119,
+            149: 117,
+            1720: 310,
+            265: 114,
+            1697: 715,
+            266: 115,
+            144: 119,
+            146: 118,
+            137: 213,
+            143: 313,
+            136: 314,
+            142: 214,
+            138: 212,
+            111: 310,
+            179: 317,
+            169: 216,
+            166: 316,
+            161: 115,
+            162: 215,
+            180: 218,
+            171: 311,
+            116: 319,
+            139: 315,
+            112: 312,
+            167: 217,
+            118: 410,
+            119: 120,
+            121: 313,
+            311: 411,
+            120: 412,
+            99: 110,
+            47: 113,
+            46: 115,
+            48: 117,
+            164: 413,
+            172: 416,
+            134: 419,
+            170: 418,
+            181: 510,
+            165: 511,
+            1850: 118,
+            53: 210,
+            50: 119,
+            49: 120,
+            71: 114,
+            72: 112,
+            68: 111,
+            69: 116,
+            113: 411,
+            1980: 211,
+            73: 212,
+            182: 512,
+            147: 417,
+            376: 218,
+            163: 513,
+            1747: 213,
+            55: 215,
+            51: 216,
+            52: 214,
+            152: 514,
+            54: 217,
+            173: 515,
+            174: 516,
+            175: 517
+        };
+
+        function lookupVlan() {
+            const zone = document.getElementById('zoneInput').value;
+            const result = vlanData[zone];
+            const resultElement = document.getElementById('result');
+            if (result) {
+                resultElement.textContent = `VLAN الخاص بالزون ${zone} هو ${result}.`;
+            } else {
+                resultElement.textContent = `لا توجد معلومات لـ VLAN للزون ${zone}.`;
+            }
+        }
+    </script>
+</body>
+</html>
